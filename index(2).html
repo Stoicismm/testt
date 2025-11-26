@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TVM Express, Inc. | Professional Trucking, Freight Hauling & CARB Testing</title>
+    <meta name="description" content="TVM Express, Inc. offers reliable short and long-distance freight hauling services and complementary CARB testing based in East Dundee, IL. Experience, reliability, and expertise.">
+    
+    <!-- Tailwind CSS (via CDN for speed and styling) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons for lightweight visuals -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts: Inter for clean, modern readability -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth; 
+        }
+        
+        /* HERO BACKGROUND SET TO LIGHT GRAY (bg-gray-50 equivalent) */
+        .bg-hero {
+            background-color: #f9fafb; /* bg-gray-50 equivalent for solid color */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Custom Alert Message Box (Replaces alert()) -->
+    <div id="custom-alert" class="fixed top-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-xl z-[100] hidden transition transform duration-300 ease-out translate-x-full">
+        <p class="font-semibold flex items-center">
+            <i data-lucide="check-circle" class="w-5 h-5 mr-2"></i>
+            Form Submitted! (Demo success message)
+        </p>
+    </div>
+
+    <!-- HEADER / NAVIGATION (Sticky) -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- LOGO SECTION -->
+            <a href="#home" class="flex items-center gap-2">
+                <!-- Using a placeholder for TVM Logo.png -->
+                <img src="TVM Logo.png" onerror="this.src='https://placehold.co/48x48/003366/ffffff?text=TVM';" alt="TVM Express Logo" class="h-12 w-auto object-contain">
+                
+                <div class="hidden sm:block">
+                    <h1 class="text-xl font-extrabold text-gray-900 leading-none whitespace-nowrap">TVM Express, Inc.</h1>
+                    <span class="text-xs text-blue-700 font-extrabold tracking-wider uppercase">LOCAL & NATIONWIDE TRUCKING</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav: Links point to IDs for navigation -->
+            <nav class="hidden md:flex space-x-8 font-bold text-gray-700">
+                <a href="#home" class="hover:text-blue-600 transition">Home</a>
+                <a href="#about" class="hover:text-blue-600 transition whitespace-nowrap">About Us</a>
+                <a href="#services" class="hover:text-blue-600 transition">Services</a>
+                <a href="#drivers" class="hover:text-blue-600 transition">Drivers</a> 
+                <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 p-4">
+            <!-- Added onClick handler to close menu on navigation -->
+            <a href="#home" class="block py-2 text-gray-700 font-medium border-b border-gray-100" onclick="closeMobileMenu()">Home</a>
+            <a href="#about" class="block py-2 text-gray-700 font-medium border-b border-gray-100" onclick="closeMobileMenu()">About Us</a>
+            <a href="#services" class="block py-2 text-gray-700 font-medium border-b border-gray-100" onclick="closeMobileMenu()">Services</a>
+            <a href="#drivers" class="block py-2 text-blue-600 font-bold border-b border-gray-100" onclick="closeMobileMenu()">Drivers: We're Hiring!</a> 
+            <a href="#contact" class="block py-2 text-gray-700 font-medium" onclick="closeMobileMenu()">Contact</a>
+            <div class="mt-4 pt-4 border-t border-gray-100">
+                 <a href="tel:6302424564" class="block w-full text-center bg-blue-800 text-white py-3 rounded-lg font-bold">
+                    Call Now
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- HERO SECTION (id="home" target) -->
+    <section id="home" class="bg-hero min-h-[600px] flex flex-col justify-start pt-3 pb-12 relative">
+        <div class="container mx-auto px-6">
+            
+            <!-- ALIGNED TOP CONTENT - UPDATED TO ALIGN LEFT ON DESKTOP -->
+            <div class="max-w-4xl mx-auto md:mx-0 text-center md:text-left mb-8">
+                
+                <!-- Wisdom Quotes - Text is now left-aligned within the container -->
+                <div class="text-gray-700 text-xs md:text-sm font-light italic text-left">
+                    <p class="mb-0.5">It takes a long time to bring excellence to maturity.</p>
+                    <p class="mb-0.5">A good reputation is more valuable than money.</p>
+                    <p class="mb-0.5">Never promise more than you can perform.</p>
+                </div>
+            </div>
+
+            <!-- MAIN HERO CONTENT (Left Aligned on Desktop, Centered on Mobile) -->
+            <div class="max-w-4xl mx-auto md:mx-0 text-center md:text-left">
+                <div class="inline-block bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
+                    Reliable • Experienced • Fast
+                </div>
+                <!-- Main Headings - Changed text color to dark gray-900/blue-600 for contrast -->
+                <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                    Hauling Is Our Business. <br/> <span class="text-blue-600">Success Is Yours.</span>
+                </h2>
+                <!-- Description Text - Changed text color to gray-700 for contrast -->
+                <p class="text-gray-700 text-lg mb-8 leading-relaxed">
+                    Based in East Dundee, IL, TVM Express provides professional short and long-distance freight hauling, and CARB Testing. We are your reliable partner for logistics and transportation.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg transition shadow-lg text-center">
+                        Get a Quote
+                    </a>
+                    <!-- Secondary Button - Changed border color to dark gray-700 for visibility -->
+                    <a href="#services" class="bg-transparent border-2 border-gray-700 text-gray-700 hover:bg-gray-100 hover:text-gray-900 font-bold py-4 px-8 rounded-lg transition text-center">
+                        Our Services
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FEATURES / VALUES (Icons Present) -->
+    <section class="py-12 bg-white -mt-10 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border-b-4 border-blue-600">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Reliability</h3>
+                    <p class="text-gray-600">Our solid experience and long list of successful projects recommend us as a reliable business partner.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border-b-4 border-blue-600">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4">
+                        <i data-lucide="award" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Expertise</h3>
+                    <p class="text-gray-600">Benefit from our dedicated team of professional transporters who know the roads and the regulations.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border-b-4 border-blue-600">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4">
+                        <i data-lucide="clock" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Availability</h3>
+                    <p class="text-gray-600">We offer high availability throughout your projects to accelerate your business development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION (id="about" target) -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <!-- Unified image source: tvm_primary_truck.jpg -->
+                    <img src="TVM Trucks Fleet.jpg"
+                </div>
+                <div class="md:w-1/2">
+                    <h4 class="text-blue-600 font-bold uppercase tracking-wider mb-2">About Us</h4>
+                    <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-6">Driven by Quality & Value</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Welcome to TVM Express, Inc. We are a premier hauling company now based in East Dundee, IL. Our team of professional transporters looks forward to helping you with all your transportation needs.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        We make every effort to always provide our customers with the best value and quality services. Whether it's a short haul across the state or a long-distance freight delivery, we treat every cargo with the utmost care and urgency. We also offer essential CARB testing services to ensure your fleet meets environmental regulations.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <!-- Restored green arrow icons -->
+                        <li class="flex items-center text-gray-700">
+                            <i data-lucide="arrow-right" class="text-green-600 w-5 h-5 mr-3"></i> Professional Team
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i data-lucide="arrow-right" class="text-green-600 w-5 h-5 mr-3"></i> Modern Fleet
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i data-lucide="arrow-right" class="text-green-600 w-5 h-5 mr-3"></i> Customer Satisfaction Priority
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION (id="services" target) -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">Our Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Comprehensive transportation solutions and compliance testing designed for your business needs.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Service 1: Full Truckload -->
+                <div class="bg-gray-50 rounded-xl p-8 border border-gray-100 hover:shadow-lg transition duration-300">
+                    <div class="text-blue-600 text-sm font-bold uppercase tracking-wider mb-2">Primary Service</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Full Truckload (FTL)</h3>
+                    <p class="text-gray-700 mb-6 text-lg">
+                        Full Truckload (FTL) offers dedicated dry van or reefer capacity for large shipments, ensuring direct, exclusive transport.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-600">Dedicated dry van and refrigerated (reefer) trailers.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-600">Best for full or near-full capacity loads.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-600">Ideal for time-sensitive, high-value freight.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 2: Less-Than-Truckload -->
+                <div class="bg-gray-50 rounded-xl p-8 border border-gray-100 hover:shadow-lg transition duration-300">
+                    <div class="text-blue-600 text-sm font-bold uppercase tracking-wider mb-2">Flexible Capacity</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Less-Than-Truckload (LTL)</h3>
+                    <p class="text-gray-700 mb-6 text-lg">
+                        Less-Than-Truckload (LTL) provides cost-effective solutions for smaller shipments that don't require a full trailer, maintaining reliable service.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-600">Cost-effective partial and shared truckload options.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-600">Perfect for recurring small to medium-sized freight.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-600">Flexible scheduling to meet your budget and timeline.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 3: Long-haul -->
+                <div class="bg-gray-50 rounded-xl p-8 border border-gray-100 hover:shadow-lg transition duration-300">
+                    <div class="text-blue-600 text-sm font-bold uppercase tracking-wider mb-2">Long-haul</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Long-haul Truckload</h3>
+                    <p class="text-gray-700 mb-6 text-lg">
+                        Our over-the-road service covers extensive, long-distance routes throughout the United States.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-600">OTR dry van and reefer capacity for regional or coast-to-coast runs.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-600">Reliable capacity for recurring long-distance shipments.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-600">Solo and team drivers available for strict, time-sensitive delivery.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 4: CARB Testing -->
+                <div class="bg-blue-900 rounded-xl p-8 border border-blue-800 hover:shadow-lg transition duration-300 text-white">
+                    <div class="flex items-center gap-2 mb-2">
+                         <i data-lucide="shield-check" class="w-5 h-5 text-green-400"></i>
+                         <div class="text-green-400 text-sm font-bold uppercase tracking-wider">Compliance Service</div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">California CARB Clean Truck Check</h3>
+                    <p class="text-blue-100 mb-4 text-lg">
+                        TVM Express offers official CARB Clean Truck Check testing to ensure your fleet complies with California Air Resources Board emissions regulations.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-blue-50">Certified Clean Truck Check (HD I/M) testing support.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-blue-50">Crucial for trucks operating in California or on West Coast lanes.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="phone" class="w-5 h-5 text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-blue-50 font-semibold">Simple scheduling: contact dispatch or email to book your appointment.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <!-- DRIVERS SECTION (id="drivers" target) -->
+    <section id="drivers" class="py-20 bg-blue-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-extrabold text-blue-800 mb-4">Join the TVM Express Team</h2>
+            <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                We are always looking for professional, experienced OTR CDL Drivers to join our growing fleet. We offer competitive pay, great routes, and a reliable partnership.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8 items-start max-w-5xl mx-auto">
+                <!-- Feature 1 -->
+                <div class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-blue-600">
+                    <i data-lucide="wallet" class="w-8 h-8 text-blue-600 mx-auto mb-3"></i>
+                    <h3 class="font-bold text-xl mb-2">Competitive Pay</h3>
+                    <p class="text-gray-600 text-sm">Excellent mileage rates and performance bonuses.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-blue-600">
+                    <i data-lucide="map" class="w-8 h-8 text-blue-600 mx-auto mb-3"></i>
+                    <h3 class="font-bold text-xl mb-2">Quality Routes</h3>
+                    <p class="text-gray-600 text-sm">Regular routes with reliable miles and minimal waiting time.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-blue-600">
+                    <i data-lucide="truck" class="w-8 h-8 text-blue-600 mx-auto mb-3"></i>
+                    <h3 class="font-bold text-xl mb-2">Modern Equipment</h3>
+                    <p class="text-gray-600 text-sm">Maintainable and comfortable fleet of trucks and trailers.</p>
+                </div>
+            </div>
+
+            <div class="mt-12">
+                 <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition shadow-xl text-lg">
+                    Contact Us to Apply
+                </a>
+                <p class="text-sm text-gray-500 mt-4">Or email your credentials to <a href="mailto:123@tvmexpress.com" class="underline text-blue-600 hover:text-blue-800 transition">123@tvmexpress.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16">
+                <h4 class="text-blue-600 font-bold uppercase tracking-wider mb-2">Testimonials</h4>
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">What customers are saying about TVM Express</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    We’re proud to build long-term partnerships with shippers who count on us for reliable communication, on-time deliveries, and professional drivers.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-blue-900 text-white p-8 rounded-xl shadow-lg border border-blue-800 flex flex-col justify-between h-full">
+                    <div>
+                        <i data-lucide="quote" class="w-8 h-8 text-blue-400 mb-4"></i>
+                        <p class="text-blue-50 mb-6 leading-relaxed">
+                            "The level of service at TVM Express is fantastic. Having been a TVM Express customer for several years, I’m still impressed by the professionalism of the staff. Thank you!"
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-blue-700">
+                        <strong class="font-bold text-white block">Damian</strong>
+                        <span class="text-xs text-blue-300">TQF · Franklin Park, IL</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-blue-900 text-white p-8 rounded-xl shadow-lg border border-blue-800 flex flex-col justify-between h-full">
+                    <div>
+                        <i data-lucide="quote" class="w-8 h-8 text-blue-400 mb-4"></i>
+                        <p class="text-blue-50 mb-6 leading-relaxed">
+                            "In this day and age, it’s difficult to find a company you can trust. TVM Express was recommended to me by a friend, and now I know why – the quality of service is absolutely superb. Keep up the good work, TVM Express!"
+                        </p>
+                        <!-- Using another quote icon placeholder in the content -->
+                    </div>
+                    <div class="pt-4 border-t border-blue-700">
+                        <strong class="font-bold text-white block">Dan Wheeler</strong>
+                        <span class="text-xs text-blue-300">Infinity Logistics · West Chicago, IL</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-blue-900 text-white p-8 rounded-xl shadow-lg border border-blue-800 flex flex-col justify-between h-full">
+                    <div>
+                        <i data-lucide="quote" class="w-8 h-8 text-blue-400 mb-4"></i>
+                        <p class="text-blue-50 mb-6 leading-relaxed">
+                            "Easily one of the best companies I have ever worked with. Reliable, great communication, always on time, and easy to work with. One of my primary go-to carriers for the last few years."
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-blue-700">
+                        <strong class="font-bold text-white block">Dan McQueen</strong>
+                        <span class="text-xs text-blue-300">Motus Freight</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION (id="contact" target) -->
+    <section id="contact" class="bg-gray-900 text-white py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12">
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-blue-400 font-bold uppercase tracking-wider mb-2">Get In Touch</h4>
+                    <h2 class="text-3xl font-bold mb-6 text-blue-400">Contact Us Today</h2>
+                    <p class="text-gray-400 mb-8">
+                        Ready to move your freight or need CARB testing? Contact our team for a quote or to learn more about our services.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-800 p-3 rounded-lg mr-4">
+                                <i data-lucide="map-pin" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Our Location</h3>
+                                <p class="text-gray-400">570 Rock Rd Dr Unit E<br>East Dundee, IL 60118</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-blue-800 p-3 rounded-lg mr-4">
+                                <i data-lucide="phone" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Phone Number</h3>
+                                <a href="tel:6302424564" class="text-gray-400 hover:text-white transition">(630) 242-4564</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-blue-800 p-3 rounded-lg mr-4">
+                                <i data-lucide="mail" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Email Address</h3>
+                                <a href="mailto:123@tvmexpress.com" class="text-gray-400 hover:text-white transition">123@tvmexpress.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-blue-800 p-3 rounded-lg mr-4">
+                                <i data-lucide="clock" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Office Hours</h3>
+                                <p class="text-gray-400">Monday - Friday: 8am - 5pm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form / Map -->
+                <div class="bg-white text-gray-800 rounded-xl p-6 md:p-8 shadow-2xl">
+                    <form id="quote-form">
+                        <h3 class="text-2xl font-bold mb-6">Request a Quote</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-sm font-semibold mb-1">Name</label>
+                                <input type="text" class="w-full bg-gray-100 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-blue-500" placeholder="Your Name" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold mb-1">Phone</label>
+                                <input type="tel" class="w-full bg-gray-100 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-blue-500" placeholder="(123) 456-7890">
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-semibold mb-1">Email</label>
+                            <input type="email" class="w-full bg-gray-100 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-blue-500" placeholder="you@company.com" required>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold mb-1">Message</label>
+                            <textarea class="w-full bg-gray-100 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-blue-500 h-32" placeholder="Tell us about your hauling needs..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded transition duration-200">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MAP SECTION -->
+    <section class="h-96 w-full bg-gray-200">
+        <div class="map-container w-full h-full">
+            <!-- Embedding Google Maps for the address provided -->
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2959.549232865918!2d-88.24584222340324!3d42.11718065126622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880f0c0f9911e3b5%3A0x6b5c3e5d0b0a0a0a!2s570%20Rock%20Rd%20Dr%20Unit%20E!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-950 text-gray-400 py-12 border-t border-gray-900">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
+                    <i data-lucide="truck" class="w-6 h-6 text-blue-500"></i>
+                    <span class="text-xl font-bold text-white">TVM EXPRESS, INC.</span>
+                </div>
+                <p class="text-sm">
+                    © 2023 TVM Express, Inc. All Rights Reserved.
+                </p>
+            </div>
+            <div class="flex space-x-6 text-sm">
+                <a href="#home" class="hover:text-white transition">Home</a>
+                <a href="#services" class="hover:text-white transition">Services</a>
+                <a href="#contact" class="hover:text-white transition">Contact</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript for Mobile Menu, Form Alert, and Icon Rendering -->
+    <script>
+        // Function to show the custom alert (replaces alert())
+        function showAlert(message, isSuccess = true) {
+            const alertBox = document.getElementById('custom-alert');
+            // Ensure the alert box is created if it's the first time
+            if (!alertBox) return;
+            
+            const alertText = alertBox.querySelector('p');
+            
+            alertBox.classList.remove('hidden', 'bg-red-600', 'bg-green-600');
+            alertBox.classList.add(isSuccess ? 'bg-green-600' : 'bg-red-600');
+            // Update message and icon based on success/failure
+            alertText.innerHTML = `<i data-lucide="${isSuccess ? 'check-circle' : 'alert-triangle'}" class="w-5 h-5 mr-2"></i> ${message}`;
+            
+            // Animate in
+            requestAnimationFrame(() => {
+                alertBox.classList.remove('translate-x-full');
+                alertBox.classList.add('translate-x-0');
+                lucide.createIcons(); // Re-render icon inside the dynamically updated alert
+            });
+
+            // Animate out after 4 seconds
+            setTimeout(() => {
+                alertBox.classList.remove('translate-x-0');
+                alertBox.classList.add('translate-x-full');
+                setTimeout(() => {
+                    alertBox.classList.add('hidden');
+                }, 300); // Wait for transition to finish
+            }, 4000);
+        }
+
+        // Function to close the mobile menu
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+        }
+
+
+        // Initialization on window load to ensure all elements and scripts are ready
+        window.onload = function() {
+            // 1. Initial Icon Rendering
+            lucide.createIcons();
+            
+            // 2. Mobile Menu Functionality
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                
+                // Close mobile menu when a navigation link is clicked
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    // Check if the link href is an anchor link (#...)
+                    if (link.getAttribute('href') && link.getAttribute('href').startsWith('#')) {
+                        link.addEventListener('click', closeMobileMenu);
+                    }
+                });
+            }
+
+            // 3. Form Submission Handler Replacement
+            const quoteForm = document.getElementById('quote-form');
+            if (quoteForm) {
+                quoteForm.onsubmit = (event) => {
+                    event.preventDefault();
+                    // Custom message instead of alert()
+                    showAlert('Thank you for your request! We will be in touch shortly.', true);
+                    // Reset form for demo clarity
+                    quoteForm.reset();
+                };
+            }
+        };
+    </script>
+</body>
+</html>
